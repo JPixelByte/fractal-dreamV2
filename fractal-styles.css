@@ -1,0 +1,500 @@
+
+        /* Base Themes */
+        :root {
+            --bg-color: #040408;
+            --panel-bg: rgba(255, 255, 255, 0.03);
+            --border-color: #fafdfb;
+            --text-color: #c7ceca;
+            --btn-hover-bg: #8400ff;
+            --btn-hover-text: #040408;
+            --status-color: #7a13f0;
+            --breathe-speed: 8s;
+        }
+
+        /* 🌓 Permanent Fixed Top-Right Theme Toggle Button Dashboard */
+        .fixed-theme-btn {
+            position: fixed !important;
+            top: 20px !important;
+            right: 20px !important;
+            width: 42px !important;
+            height: 42px !important;
+            background: var(--panel-bg);
+            border: 1px solid var(--border-color);
+            color: var(--text-color);
+            font-size: 18px !important;
+            border-radius: 50% !important;
+            cursor: pointer !important;
+            z-index: 1000 !important;
+            display: flex !important;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+            transition: transform 0.2s ease, background-color 0.3s ease, border-color 0.3s ease;
+        }
+
+        .fixed-theme-btn:hover {
+            transform: scale(1.1);
+            background: var(--border-color);
+            color: var(--bg-color);
+        }
+        [data-theme="light"] {
+            --bg-color: #f4edd2; /* Soft sepia background to protect from head pain */
+            --panel-bg: rgba(0, 0, 0, 0.04);
+            --border-color: #5c4a3c;
+            --text-color: #4a3728;
+            --btn-hover-bg: #4a3728;
+            --btn-hover-text: #f4edd2;
+            --status-color: #eb7304;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            font-family: 'Courier New', Courier, monospace;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+            min-height: 100vh;
+            margin: 0;
+            overflow: hidden;
+            transition: background-color 0.5s ease, color 0.5s ease;
+            animation: pulseBg var(--breathe-speed) ease-in-out infinite, 
+               delayReverse 0.5s ease 0s 1 normal;
+             -webkit-animation:pulseBg var(--breathe-speed) ease-in-out infinite, delayReverse 0.5s ease 0s 1 normal;
+            
+            /* animation: pulseBg var(--breathe-speed) ease-in-out infinite;
+            animation: delayReverse 0.5s ease 0s 1 normal;
+            -webkit-animation: delayReverse 0.5s ease 0s 1 normal; */
+        }
+
+        /* 🎯 CRITICAL SYSTEM OVERRIDE: Forces pointer hand indicators across ALL sliders */
+        input[type="range"] {
+            cursor: pointer !important;
+        }
+
+        /* Force pointer cursors on the tracking tracks for complete mobile assurance */
+        input[type="range"]::-webkit-slider-thumb {
+            cursor: pointer !important;
+        }
+        input[type="range"]::-moz-range-thumb {
+            cursor: pointer !important;
+        }
+
+        #control-panel {
+            margin-top: 15px;
+            padding: 15px;
+            background: var(--panel-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            align-items: center;
+            justify-content: center;
+            max-width: 95vw;
+            z-index: 10;
+        }
+
+        .control-group {
+            cursor: pointer;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 5px;
+        }
+        #speedSlider, #volumeSlider {
+            cursor: pointer;
+        }
+        label {
+            font-size: 12px;
+            font-weight: bold;
+        }
+
+        input[type=range] {
+            width: 140px;
+            accent-color: var(--border-color);
+        }
+
+        select, button {
+            background: transparent;
+            border: 1px solid var(--border-color);
+            color: var(--text-color);
+            padding: 8px 12px;
+            font-family: 'Courier New', Courier, monospace;
+            cursor: pointer;
+            border-radius: 4px;
+            font-weight: bold;
+            transition: all 0.2s ease;
+        }
+
+        select {
+            background-color: var(--bg-color);
+        }
+
+        button:hover, select:hover {
+            background: var(--btn-hover-bg);
+            color: var(--btn-hover-text);
+        }
+
+        #canvas-container {
+            position: relative;
+            width: 95vw;
+            height: 70vh;
+            margin-top: 15px;
+            border: 1px solid var(--panel-bg);
+            border-radius: 6px;
+        }
+
+        canvas {
+            display: block;
+            width: 100%;
+            height: 100%;
+            background: transparent;
+        }
+
+        #status-overlay {
+            position: absolute;
+            bottom: 33px;
+            left: 15px;
+            font-family: "Orbitron", sans-serif;
+            font-size: 11px;
+            font-weight: bold;
+            color: var(--status-color);
+            pointer-events: none;
+            max-width: 80%;
+        }
+
+        .audio-wave-container {
+            display: flex;
+            align-items: flex-end;
+            justify-content: space-between;
+            width: 50px;
+            height: 30px;
+            margin-left: 15px;
+            padding: 2px;
+        }
+/* Start of: Animating Dancing Bars CSS for Sound Visualization */
+    .wave-bar {
+        width: 6px;
+        height: 3px; /* Flat rest height */
+        background-color: var(--border-color);
+        border-radius: 3px;
+        transition: background-color 0.5s ease, height 0.15s ease-in-out;
+    }
+
+    /* Active CSS keyframe animations for varied rhythm */
+    @keyframes danceBar1 { 0%, 100% { height: 6px; } 50% { height: 26px; } }
+    @keyframes danceBar2 { 0%, 100% { height: 28px; } 50% { height: 8px; } }
+    @keyframes danceBar3 { 0%, 100% { height: 12px; } 50% { height: 30px; } }
+    @keyframes danceBar4 { 0%, 100% { height: 24px; } 50% { height: 10px; } }
+    @keyframes danceBar5 { 0%, 100% { height: 8px; } 50% { height: 22px; } }
+
+    .audio-wave-container.playing .bar-1 { animation: danceBar1 0.6s ease-in-out infinite; }
+    .audio-wave-container.playing .bar-2 { animation: danceBar2 0.7s ease-in-out infinite; }
+    .audio-wave-container.playing .bar-3 { animation: danceBar3 0.5s ease-in-out infinite; }
+    .audio-wave-container.playing .bar-4 { animation: danceBar4 0.8s ease-in-out infinite; }
+    .audio-wave-container.playing .bar-5 { animation: danceBar5 0.65s ease-in-out infinite; }
+
+    /* When the container is NOT actively playing, immediately strip the animation property */
+    /*
+    .audio-wave-container:not(.playing) .wave-bar {
+        animation: none !important;
+        height: 3px !important; /* Forces bars back down to flat rest height 
+    }
+    */
+
+/* End of: Animating Dancing Bars CSS for Sound Visualization */
+
+/* Start of: GSAP-Animated Bottom Control Navbar CSS  */
+
+.bottom-nav-container {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 30px;
+    padding: 10px 25px;
+    background: var(--panel-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 30px;
+    backdrop-filter: blur(10px);
+    z-index: 100;
+}
+
+.nav-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    cursor: pointer;
+    padding: 5px 10px;
+    transition: color 0.3s ease;
+}
+
+.nav-icon {
+    font-size: 20px;
+    margin-bottom: 4px;
+}
+
+.nav-label {
+    font-size: 11px;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+.nav-speed {
+   margin-top: 8px;
+}
+#nav-speed input[type="range"] {
+    margin-top:5px;
+    width: 120px;
+    accent-color: var(--border-color);
+}
+
+/* Custom GSAP Color Picker Track Geometry */
+/* Force the color container to align text and elements vertically */
+.color-swatch-box {
+   cursor: pointer;
+    -webkit-appearance: none;
+    appearance: none;
+    margin-bottom:1px;
+}
+#nav-color-container .nav-label {
+    font-size: 11px !important;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-top: 5px !important; /* The 5px nudge to line it up perfectly across the bar */
+    color: var(--text-color);
+}
+/* End of: GSAP-Animated Bottom Control Navbar CSS  */
+
+/* ==========================================================================
+   🍔 HIGH-TECH TOP-RIGHT HAMBURGER TRIGGER BUTTON
+   ========================================================================== */
+.hamburger-menu-btn {
+    position: fixed !important;
+    top: 20px !important;
+    left: 20px !important; /* Positions it on the right side, neatly next to your theme button */
+    z-index: 1005 !important; /* Layers it safely in front of the canvas container */
+    width: 42px !important;   /* Compact, clean tech sizing */
+    height: 42px !important;
+    background: #2a2a2e !important; /* Premium dark grey color profile */
+    border: 1px solid rgba(255, 255, 255, 0.1) !important;
+    border-radius: 8px !important;
+    cursor: pointer;
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4) !important;
+    transition: background 0.2s ease, transform 0.1s ease !important;
+}
+
+/* Format the ☰ symbol inside your HTML button tag to look clean and white */
+.hamburger-menu-btn .hamburger-icon {
+    color: #ffffff !important;
+    font-size: 18px !important;
+    line-height: 1 !important;
+}
+
+.hamburger-menu-btn:hover {
+    background: #3a3a3f !important; /* Soft highlight shift when hovered */
+    border-color: rgba(255, 255, 255, 0.2) !important;
+}
+
+.hamburger-menu-btn:active {
+    transform: scale(0.95) !important; /* Gives a physical click feedback click response */
+}
+
+
+/* Start of: Keyframe Animation */
+@keyframes delay {
+
+0%,
+33% {
+    transform: scaleY(1);
+    -webkit-transform: scaleY(2222);
+    -webkit-transform: scaleX(222);
+}
+
+66% {
+    transform: scaleY(60);
+    -webkit-transform: scaleY(2222);
+    -webkit-transform: scaleX(222);
+}
+
+100% {
+    transform: scaleY(1);
+    -webkit-transform: scaleY(1);
+}
+}
+
+@keyframes delayReverse {
+0% {
+    transform: scaleY(1);
+    -webkit-transform: scaleY(1);
+}
+
+33% {
+    transform: scaleY(1);
+    -webkit-transform: scaleY(2222);
+    -webkit-transform: scaleX(222);
+}
+
+66% {
+    transform: scaleY(60);
+    -webkit-transform: scaleY(2222);
+    -webkit-transform: scaleX(222);
+}
+
+100% {
+    transform: scaleY(1);
+    -webkit-transform: scaleY(1);
+    }
+}
+
+    @keyframes pulseBg {
+    0%, 100% { opacity: 0.95; }
+    50% { opacity: 1; }
+}
+
+/* End of: Keyframe Animations */
+
+/* Start of: Mobile Responsiveness */
+
+/* 📱 MOBILE RESPONSIVENESS AND TABLET BREAKPOINTS */
+/* ==========================================================================
+   🌌 DESKTOP PERMANENT VIEWPORT (Screens wider than 1100px)
+   ========================================================================== */
+@media (min-width: 1101px) {
+  
+    /* 2. Force the control drawer to act as a normal pinned panel on the left side */
+    .hidden-menu-drawer {
+        position: fixed !important;
+        top: 0 !important;
+        left: 0 !important; /* Locks it open on screen */
+        width: 320px !important;
+        height: 100vh !important;
+        background: rgba(10, 10, 18, 0.75) !important;
+        backdrop-filter: blur(20px) !important;
+        -webkit-backdrop-filter: blur(20px) !important;
+        border-right: 1px solid rgba(255, 255, 255, 0.1) !important;
+        padding: 90px 24px 30px 24px !important;
+        box-shadow: none !important;
+        z-index: 1000 !important;
+    }
+
+    /* 3. Ensure the canvas expands full-screen but gives padding if you don't want it overlapped */
+    #canvas-container {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 98%;
+        z-index: 1;
+    }
+}
+
+/* ==========================================================================
+   📱 LAPTOP, TABLET & MOBILE VIEWPORT (Screens 1100px or smaller)
+   ========================================================================== */
+@media (max-width: 1100px) {
+    /* 1. Make the high-tech hamburger activation button visible */
+    .hamburger-menu-btn {
+        display: flex !important;
+        position: fixed;
+        top: 20px;
+        left: 20px;
+        z-index: 1001;
+        width: 50px;
+        height: 50px;
+        background: rgba(15, 15, 25, 0.65);
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+        border: 1px solid rgba(255, 255, 255, 0.15);
+        color: var(--text-color, #ffffff);
+        font-size: 26px;
+        border-radius: 12px;
+        cursor: pointer;
+        justify-content: center;
+        align-items: center;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+        transition: background 0.3s ease, transform 0.2s ease;
+    }
+
+    /* 2. Tuck the menu drawer completely off-screen by default */
+    .hidden-menu-drawer {
+        position: fixed;
+        top: 0;
+        text-align:center;
+        left:50%;
+        transform: translateX(-50%);
+        height: 100vh;
+        background: rgba(10, 10, 18, 0.92);
+        backdrop-filter: blur(30px);
+        -webkit-backdrop-filter: blur(30px);
+        border-right: 1px solid rgba(255, 255, 255, 0.1);
+        z-index: 1000;
+        padding: 90px 24px 30px 24px;
+        box-sizing: border-box;
+        display: flex;
+        flex-direction: column;
+        gap: 35px;
+        overflow-y: auto;
+        box-shadow: 5px 0 30px rgba(0, 0, 0, 0.5);
+        transition: left 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    /* Activated state class hook */
+    .hidden-menu-drawer.drawer-open {
+        left: 0 !important;
+    }
+      #status-overlay{
+        position: absolute;
+        text-align:center;
+         left:50%;
+         transform: translateX(-50%);
+         bottom:50px;
+     }
+}
+
+
+
+/* Tiny Mobile Phones Screen Refinements */
+@media (max-width: 600px) {
+     #status-overlay{
+        display:none;
+     }
+    .hidden-menu-drawer {
+        width: 100vw;
+        left: -100vw;
+        padding-top: 85px;
+    }
+    .hamburger-menu-btn, .fixed-theme-btn {
+        width: 44px;
+        height: 44px;
+        font-size: 20px;
+        top: 15px;
+    }
+    .hamburger-menu-btn { left: 15px; }
+    .fixed-theme-btn { right: 15px; }
+    .nav-label { font-size: 12px !important; }
+}
+@media (max-width: 1200px) {
+       #status-overlay{
+            position: fixed;
+            text-align:center;
+            left:50%;
+            transform: translateX(-50%);
+            bottom:120px;
+     }
+    }
+/* 🔋 TOUCH AND PERFORMANCE BOOST */
+canvas {
+    touch-action: none; /* Prevents mobile scrolling gestures from lagging the fractal canvas */
+    -webkit-tap-highlight-color: transparent; /* Removes blue flash box on touch */
+}
+
+
+/* End of: Mobile Responsiveness */

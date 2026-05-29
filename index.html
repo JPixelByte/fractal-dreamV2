@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <link rel="icon" type="image/png" href="fractalz.png">
+    <link rel="stylesheet" href="fractal-styles.css">
+    <title>Prime Fractal Space-Sleep Engine</title>
+    <link href="https://fonts.googleapis.com/css2?family=Edu+NSW+ACT+Cursive:wght@400..700&family=Google+Sans:ital,opsz,wght@0,17..18,400..700;1,17..18,400..700&family=Orbitron:wght@400..900&family=Playwrite+GB+S+Guides:ital@0;1&family=Saira+Stencil:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.15/dist/gsap.min.js"></script>
+
+</head>
+<body>
+    <!-- 🌓 NEW: Fixed Top-Right Theme Toggle Button -->
+    <button id="themeToggle" class="fixed-theme-btn" onclick="toggleTheme()">🌓</button>
+
+      <!-- 🍔 THE HAMBURGER TRIGGER BUTTON: Clean, GPU-friendly menu activation link -->
+    <button id="menuTrigger" class="hamburger-menu-btn" onclick="toggleMenuDrawer()">
+        <span class="hamburger-icon">☰</span>
+    </button>
+    
+
+     <div id="control-panel" data-visible="true"> 
+
+        <!-- SLOT 1: QUICK MUTE -->
+        <div class="control-group" id="nav-mute" onclick="toggleMasterMute()">
+            <span class="nav-icon">🔇</span>
+            <span class="nav-label">Quick Mute</span>
+        </div>
+
+        <div class="control-group">
+            <label for="noiseSelect">🎵 Sound Profile</label>
+            <select id="noiseSelect">
+                <option value="none">Mute Audio</option>
+                <option value="pink">Pink Noise (Deep Rain)</option>
+                <option value="white">White Noise (Static)</option>
+            </select>
+        </div>
+
+        <div class="control-group">
+            <label for="binauralSelect">🧠 Binaural Beats</label>
+            <select id="binauralSelect">
+                <option value="none">Binaural Off</option>
+                <!-- 🔊 Subwoofer-Optimized Layered Modes -->
+                <option value="delta_sub">Deep Sleep Delta (SubWoof 2Hz)</option>
+                <option value="theta_sub">Dreamy Theta (Subwoof 6Hz)</option>
+                <!-- 💻 Original Single-Tone Modes -->
+                <option value="delta_orig">Original Sleep Delta (2Hz)</option>
+                <option value="theta_orig">Original Dreamy Theta (6Hz)</option>
+            </select>
+        </div>
+
+        
+    <!-- 🎛️ NEW ELEMENT: Pinned Bottom Volume Mixing Board -->
+        <div class="control-group mixing-board">
+
+            <div class="control-group mixer-channel">
+                <label for="binauralVol">🧠 Binaural</label>
+                <input type="range" id="binauralVol" min="0" max="100" value="50">
+            </div>
+        </div>
+
+        <div class="control-group">
+            <label for="volumeSlider">🔈 Master Volume</label>
+            <input type="range" id="volumeSlider" min="0" max="100" value="25">
+        </div>
+
+            <!-- 🎛️ New Sound Spectrum Visualizer Wave Container -->
+                <div id="audio-wave" class="audio-wave-container">
+                    <span class="wave-bar bar-1"></span>
+                    <span class="wave-bar bar-2"></span>
+                    <span class="wave-bar bar-3"></span>
+                    <span class="wave-bar bar-4"></span>
+                    <span class="wave-bar bar-5"></span>
+                </div>
+    </div>
+
+    <div id="canvas-container">
+        <canvas id="galaxyCanvas"></canvas>
+        <div id="status-overlay">--- Waiting for calculation ---</div>
+    </div>
+
+    <!-- 🧭 GSAP-Animated Bottom Control Navbar -->
+
+    <div id="bottom-navbar" class="bottom-nav-container">
+
+    <!-- Star Drift Speed -->
+      <div class="nav-item nav-speed" id="nav-speed">
+            <input type="range" id="speedSlider" min="1" max="100" value="20">
+              <span class="nav-label" for="speedSlider">🐑 Star Drift Speed</span>
+        </div>
+
+      <!-- SLOT 2: NATIVE COLOR SWATCH WIDGET (Completely Restored) -->
+    <div class="nav-item" id="nav-color-container">
+        <!-- Clicking this styled thumbnail instantly invokes the device's built-in color wheel -->
+        <input type="color" id="native-color-picker" class="color-swatch-box" value="#ff9100">
+        <span class="nav-label">Cosmic Hue</span>
+    </div>
+
+    <!-- SLOT 3: EYE SAVER DIMMER -->
+    <div class="nav-item" id="nav-dim" onclick="toggleScreenDim()">
+        <span class="nav-icon">🌙</span>
+        <span class="nav-label">Eye Saver</span>
+    </div>
+
+    <!-- SLOT 4: NEW FRACTAL WRITING PANEL -->
+    <div class="nav-item" id="nav-writing" onclick="openWriting()">
+        <span class="nav-icon">🖋️</span>
+        <span class="nav-label">Fractal Writing</span>
+    </div>
+
+    <!-- SLOT 5: RESET AND WARP SPEED SPEED RELOAD -->
+    <div class="nav-item" id="nav-reset" onclick="window.location.reload()">
+        <span class="nav-icon">🔄</span>
+        <span class="nav-label">Reset Math</span>
+    </div>
+    
+</div>
+
+
+
+<!-- 
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+
+Credits:💡
+    GOD: For giving us life, creating us in HIS Holy Image.
+    Mankind: for creating the computer is their image.
+    Mr. Google for greatly helping with the Fractal-Dream App and Mr. Frosty for
+    helping to improve the Fractal Writing. 
+    Google Fonts:
+    Glyphy.io for the custom font generator used to create the unique typeface in the Fractal Writing Panel.
+    https://glyphy.io/font-generator/whatsapp-fonts
+
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+-->
+
+     <!-- Load your custom external engine code last -->
+    <script src="fractal-colorpicker.js"></script>
+    <script src="fractal-engine.js"></script>
+    <script src="fractal-gsap-engine.js"></script>
+   
+</body>
+</html>

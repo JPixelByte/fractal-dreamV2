@@ -1,0 +1,268 @@
+
+<!DOCTYPE html> 
+<html lang="en">    
+<head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="icon" type="image/png" href="fractalz.png">
+        <title>Fractal Writing</title>
+
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Edu+NSW+ACT+Cursive:wght@400..700&family=Google+Sans:ital,opsz,wght@0,17..18,400..700;1,17..18,400..700&family=Orbitron:wght@400..900&family=Playwrite+GB+S+Guides:ital@0;1&family=Saira+Stencil:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    
+    </head>
+    <style>
+
+        /* Start of: Global Styles  */
+
+        :root {
+            --YESHUA: rgb(10, 148, 17);
+            --scripture-red: rgb(209, 4, 4);
+            --chaotic-fractals: rgb(253, 9, 9);
+            --scripture-quote: rgb(255, 174, 0);
+            --forest-green: rgb(5, 116, 5);
+            --grass-green: rgb(25, 150, 0);
+            --sky-blue: rgb(0, 191, 255);
+            --sun-yellow: rgb(255, 223, 0);
+            --pure-white: rgb(255, 255, 255);
+            --pure-black: rgb(0, 0, 0);
+            --smoke-gray: rgb(128, 128, 128);
+        }
+        *::before, *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        html, body {
+            height: 100%;
+            margin: 0;
+            text-align: center;
+            background-color: black;
+        }
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100%;
+            background-color: black;
+            color: white;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            text-rendering: optimizeLegibility;
+            padding: 20px;
+            scrollbar-width: thin; /* Firefox */
+            scrollbar-color: rgba(255,255,255,0.45) rgba(255,255,255,0.08); /* Firefox */
+        }
+        html::-webkit-scrollbar,
+        body::-webkit-scrollbar {
+            width: 12px;
+            background: rgba(255,255,255,0.05);
+        }
+        html::-webkit-scrollbar-track,
+        body::-webkit-scrollbar-track {
+            background: rgba(255,255,255,0.08);
+            border-radius: 999px;
+        }
+        html::-webkit-scrollbar-thumb,
+        body::-webkit-scrollbar-thumb {
+            background: rgba(255,255,255,0.35);
+            border-radius: 999px;
+            border: 3px solid transparent;
+            background-clip: padding-box;
+        }
+        html::-webkit-scrollbar-thumb:hover,
+        body::-webkit-scrollbar-thumb:hover {
+            background: rgba(255,255,255,0.65);
+        }
+        html::-webkit-scrollbar-corner,
+        body::-webkit-scrollbar-corner {
+            background: transparent;
+        }
+
+        /* Start of: Classes and IDs */
+        .CREATOR {
+                color: var(--YESHUA);
+                font-family: "Saira Stencil", "Orbitron", sans-serif;
+                font-weight: 700;
+                font-size: 2.5em;
+                letter-spacing: 0.5px;
+            }
+        .YESHUA {
+            color: var(--YESHUA);
+            font-family: "Saira Stencil", "Orbitron", sans-serif;
+            font-weight: 700;
+            font-size: 2.5em;
+            letter-spacing: 0.5px;
+        }
+        .title {
+            text-align: center;
+            font-size: 2.5em;
+            margin: 66px 0 10px;
+            /* padding-bottom: 11px; */
+            font-family: "Saira Stencil", sans-serif;
+        }
+        .subtitle {
+            text-align: center;
+            font-size: 1.7em;
+            color:orangered;
+            margin-bottom: 20px;
+            font-family: "Saira Stencil", sans-serif;
+            letter-spacing: 1px;
+        }
+        .content {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto;
+            font-size: 0.9em;
+            line-height: 1.6;
+            font-family: "Google Sans", "Saira Stencil", "Orbitron", sans-serif;
+            font-optical-sizing: auto;
+            font-weight: 200;
+            font-style: normal;
+        }
+
+        .chaotic-fractals {
+            color:var(--chaotic-fractals);
+            font-family: "Edu NSW ACT Cursive", cursive, Sans-serif;
+            font-size: 1.2em;
+            letter-spacing: 0.5px;
+        }
+        .matthew {
+            color:var(--scripture-red);
+            font-family: "Playwrite GB S Guides", cursive;
+            font-weight: 500;
+            font-size: 1.4em;
+            letter-spacing: 0.5px;
+        }
+        .scripture-quote {
+            color:var(--scripture-quote);
+            font-family: "Edu NSW ACT Cursive", cursive, Sans-serif;
+            font-optical-sizing: auto;
+            font-size: 1.1em;
+            letter-spacing: 0.5px;
+        }
+        .ponder-this-reversal {
+            color: var(--sun-yellow);
+            font-family: "Playwrite GB S Guides", Sans-serif;
+            font-size: 1.2em;
+            letter-spacing: 0.5px;
+        }
+        .reversal {
+            color: var(--sun-yellow);
+            /* font-family: "Playwrite GB S Guides", Sans-serif; */
+            font-size: 1.2em;
+            letter-spacing: 0.5px;
+        }
+        #return-home {
+            padding: 10px 20px;
+            font-size: 1em;
+            background-color: var(--grass-green);
+            color: var(--pure-white);
+            border: none;
+            cursor: pointer;
+            margin: 30px auto 0;
+            font-family: "Saira Stencil", "Orbitron", sans-serif;
+            transition: background-color 0.3s, color 0.3s;
+        }   
+        #return-home:hover {
+           background-color: var(--forest-green);
+           color:whitesmoke;
+        }
+
+        /* Start of: Animations and Transitions  */
+
+        /* Start of: Media Queries   */
+    </style>
+    <body>
+       <h2 class="title">The Beautiful and ⱧØⱤⱤł₣Ɏł₦₲ Reality<br/> of the 爪₳₦ĐɆⱠ฿ⱤØ₮ 𝗙⃥𝗿⃥𝗮⃥𝗰⃥𝘁⃥𝗮⃥𝗹⃥ set</h2>
+
+
+        <h3 class="subtitle">Creation: The Minds Eye-Zoom in on this!</h3>
+        <hr nowidth size="1" color="orangered" style="margin: 20px auto; width: 66%;">
+        <div class="content">
+   
+            A ⚡Magnificent box 📦 dressed up as a present 🎁, opens up 🗃️...zooming 🔬 in on a brain 🧠, which zooms 🔎in on another brain 🧠, 
+            which zooms in on the internal structured workings ⚙️🛠️ of yet another brain 🧠 ,
+            which then zooms 🔍 in on another box 📦, <br/>wearing the same but different present 🎁, and this cycle repeats itself.
+            <br/><br/>
+            A gift 🎁, a brain 🧠, a present 🎁!<br/>
+
+            Our brains are a powerful 🪫computer 💻 and as such, are such a terrible thing to waste 🗑️.<br><br>
+
+
+        <span class="chaotic-fractals">A plumber plunges into chaos, navigating fractals of despair, a Sisyphean struggle breaks out against endless loops, which broke out 
+        and 1/3 of the stars have fallen.</span><br><br>
+
+
+        <span class="matthew">Matthew 8:12</span><br/>
+        <span class="scripture-quote">
+            'But the children of the kingdom shall be cast out into outer darkness,<br/>
+            where there shall be weeping and gnashing of teeth.' <br/><br/></span>
+        </span> 
+        Are you ready for an abstract, complex spiritual equation of a ride?<br/><br/>
+
+        What is the divine nature of z_{n+1} = z_n² + c? <br/>
+        The + c is the spark that launches the colors. <br/>
+
+        The Mandelbrot set stands as one of the most hauntingly beautiful objects in all of mathematics<br/> — a geographic map of iterative stability
+        and explosive chaos.<br/><br/>
+
+        Begin with z₀ = 0 and iterate.<br/>
+
+        The black regions are the stable, bounded points — trapped within their boundaries, repeating the same safe orbit forever. <br/>
+
+        Colorless and lifeless, a prison of endless repetition.<br/>
+
+        Yet the reversal is striking: when a point escapes the black set,<br/> driven by the tiniest shift in the complex number + c,<br/> it bursts outward into infinite color and ever-branching patterns that mimic
+        the wild beauty and complexity of life itself. Here is where vibrancy, growth, and eternity explode.  <br/><br/>
+
+        This is the divine paradox within z_{n+1} = z_n² + c:<br/>
+
+        What appears as perfect stability can become a form of Hell — confined, unchanging, without light or growth.<br/>
+
+        What appears as chaos and rebellion against the boundary becomes the place of color, wonder, and living eternity. <br/>
+
+        And yet the opposite also holds: true freedom is not lawlessness, but finding one’s boundary in the <span class="CREATOR">CREATOR HIMSELF</span>.<br/><br/>
+
+        Chaos Theory: A tiny change can produce drastic, far-reaching consequences.<br/>
+
+        Yet when we mix in the complex number + c, even the smallest shift acts as a spark. <br/>Suddenly the butterfly effect takes hold.<br/><br/>
+
+       <span class="ponder-this-reversal">Ponder this</span> <span class="reversal">ʅɐsɹǝʌǝɹ</span>:</span> <br/>When we venture off from being stable, traveling away from our comfort zone, 
+       we have more opportunity to grow. When we grow, we view the light more clearly, thus our ability to grow, grows abundantly. <br/><br/>
+
+    
+        Tɦɛ Ռɛա Ɖǟʏ begins at sundown, when it is hardest to see, so too is that with our faith.<br/>
+        At the beginning of our journey, we don't see as clearly as when our faith as a chance to blossom, mature and sprout. However, as the new
+        day progresses, so too does our ability to see.<br/><br/>
+
+        Now resides a duality — light and darkness, obedience and rebellion, night and day.<br/>
+
+        To receive color, the numbers must break free into the butterfly effect and branch off into infinity.<br/>
+        But those confined by the prison of sin remain trapped in endless recursive loops — just as those who sin are slaves to sin.<br/>
+
+        Our tongues are like the rudder of ships, that steer us through the Butterfly Effect,<br/> where whispers can unleash fiery hurricanes of destruction.
+
+        Our souls are a perpetual force of energy, wrapped by a metaphoric forcefield cocoon, contained within a state of consciousness.<br/><br/>
+
+        Color is light, and the LIGHT of the world is <span class="YESHUA">YESHUA!</span><br/><br/>
+
+        I do not want anyone to enter the kingdom of hell, unless it is for a few moments in time,<br/> just so they will comprehend what suffering is, and then
+        for them to repent and embrace my LORD!<br/><br/>
+        </div>
+
+    
+        <button onclick="goback()" id="return-home">return home</button><br/><br/>
+        <script>
+            function goback() {
+                  window.open('index.html', '_blank');
+                // window.history.back();
+            }   
+        </script>
+
+    <!-- Credits: My LORD for the inspiration, Mr. Frosty, Mr. Google, Ronnie for the fractal brain idea -->
+    <!-- Crazy good fonts: Mr. Google and https://glyphy.io/font-generator/whatsapp-fonts -->
+
+    </body>
+</html>
