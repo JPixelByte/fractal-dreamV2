@@ -1,0 +1,389 @@
+
+
+/* Start of: Global Styles  */
+
+:root {
+    --YESHUA: rgb(10, 148, 17);
+    --scripture-red: rgb(209, 4, 4);
+    --pure-red: rgb(255, 0, 0);
+    --chaotic-fractals: rgb(253, 9, 9);
+    --scripture-quote: rgb(255, 174, 0);
+    --forest-green: rgb(5, 116, 5);
+    --grass-green: rgb(25, 150, 0);
+    --royal-purple: rgb(87, 0, 128);
+    --rebecca-purple: rgb(93, 37, 150);
+    --sky-blue: rgb(0, 191, 255);
+    --sun-yellow: rgb(255, 223, 0);
+    --pure-white: rgb(255, 255, 255);
+    --pure-black: rgb(0, 0, 0);
+    --smoke-gray: rgb(128, 128, 128);
+}
+*::before, *::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+html, body {
+    height: 100%;
+    margin: 0;
+    text-align: center;
+    background-color: black;
+}
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100%;
+    overflow-x:hidden;
+    min-height: 200vh; /* Must be taller than the screen */
+    scroll-behavior:smooth;
+    /* background-image: url("../images/fractal-milkshake.jpg"); */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    background-color: black;
+    color: white;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+    padding: 20px;
+    scrollbar-width: thin; /* Firefox */
+    scrollbar-color: rgba(255,255,255,0.45) rgba(255,255,255,0.08); /* Firefox */
+    -webkit-animation: delay 0.7s ease 0s 1 normal;
+    -moz-animation: delay 0.7s ease 0s 1 normal;
+    -ms-animation: delay 0.7s ease 0s 1 normal;
+    animation: delay 0.7s ease 0s 1 normal;
+}
+
+html::-webkit-scrollbar,
+body::-webkit-scrollbar {
+    width: 12px;
+    background: rgba(255,255,255,0.05);
+}
+html::-webkit-scrollbar-track,
+body::-webkit-scrollbar-track {
+    background: rgba(255,255,255,0.08);
+    border-radius: 999px;
+}
+html::-webkit-scrollbar-thumb,
+body::-webkit-scrollbar-thumb {
+    background: rgba(255,255,255,0.35);
+    border-radius: 999px;
+    border: 3px solid transparent;
+    background-clip: padding-box;
+}
+html::-webkit-scrollbar-thumb:hover,
+body::-webkit-scrollbar-thumb:hover {
+    background: rgba(255,255,255,0.65);
+}
+html::-webkit-scrollbar-corner,
+body::-webkit-scrollbar-corner {
+    background: transparent;
+}
+
+a:link {
+    color: var(--grass-green);
+    background-color: transparent;
+    text-decoration: none;
+}
+
+a:visited {
+    color: var(--sky-blue);
+    background-color: transparent;
+    text-decoration: none;
+}
+
+a:hover {
+    color: var(--sun-yellow);
+    background-color: transparent;
+    text-decoration: underline;
+}
+
+a:active {
+    color: yellow;
+    background-color: transparent;
+    text-decoration: underline;
+}
+.ponder-effect {
+    text-decoration: none;
+    font-size:1.5em;
+    font-weight:600;
+    letter-spacing:2px;
+    color:var(--sky-blue);
+}
+
+.ponder-effect:hover{
+    cursor:pointer;
+    text-decoration: none;
+    -webkit-animation: delay 0.2s ease 0s 1 normal;
+    -moz-animation: delay 0.2s ease 0s 1 normal;
+    -ms-animation: delay 0.2s ease 0s 1 normal;
+    animation: delay 0.2s ease 0s 1 normal;
+}
+
+.ponder-effect:hover::before,
+.ponder-effect:hover::after {
+    -webkit-animation: delay 0.2s ease 0s 1 normal;
+    -moz-animation: delay 0.2s ease 0s 1 normal;
+    -ms-animation: delay 0.2s ease 0s 1 normal;
+    animation: delay 0.2s ease 0s 1 normal;
+    opacity: 1;
+    /* Show both icons on hover */
+}
+
+.infinityfractal-effect:hover{
+    cursor:pointer;
+    text-decoration: none;
+    -webkit-animation: delay 0.2s ease 0s 1 normal;
+    -moz-animation: delay 0.2s ease 0s 1 normal;
+    -ms-animation: delay 0.2s ease 0s 1 normal;
+    animation: delay 0.2s ease 0s 1 normal;
+}
+
+a:link:hover{
+    cursor:pointer;
+    text-decoration: none;
+    -webkit-animation: delay 0.2s ease 0s 1 normal;
+    -moz-animation: delay 0.2s ease 0s 1 normal;
+    -ms-animation: delay 0.2s ease 0s 1 normal;
+    animation: delay 0.2s ease 0s 1 normal;
+}
+
+/* Start of: Classes and IDs */
+.CREATOR {
+    color: var(--YESHUA);
+    font-family: "Saira Stencil", "Orbitron", sans-serif;
+    font-weight: 700;
+    font-size: 2.5em;
+    letter-spacing: 0.5px;
+}
+.YESHUA {
+    color: var(--YESHUA);
+    font-family: "Saira Stencil", "Orbitron", sans-serif;
+    font-weight: 700;
+    font-size: 2.5em;
+    letter-spacing: 0.5px;
+}
+.title {
+    text-align: center;
+    font-size: 2.5em;
+    margin: 66px 0 10px;
+    font-family: "Saira Stencil", sans-serif;
+}
+.subtitle {
+    text-align: center;
+    font-size: 1.7em;
+    color:orangered;
+    margin-bottom: 20px;
+    font-family: "Saira Stencil", sans-serif;
+    letter-spacing: 1px;
+}
+.content {
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto;
+    font-size: 0.9em;
+    line-height: 1.6;
+    font-family: "Google Sans", "Saira Stencil", "Orbitron", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 200;
+    font-style: normal;
+}
+.T-the::first-letter {
+    -webkit-initial-letter:2;
+    initial-letter: 2; /* Initial letter occupies 2 lines */
+    color:var(--sun-yellow);
+}
+.C::first-letter {
+    -webkit-initial-letter:3;
+    initial-letter: 3; /* Initial letter occupies 2 lines */
+    font-size:2em;
+    font-weight:600;
+    color:var(--rebecca-purple);
+}
+.reation{
+    position:relative;
+    top:5px;
+    left:5px;
+    font-size:1.8em;
+    letter-spacing:2px;
+    color:var(--sun-yellow);
+}
+.REATOR{
+    position:relative;
+    top:5px;
+    left:5px;
+    font-size:1.1em;
+    letter-spacing:2px;
+    color:var(--grass-green);
+}
+
+.Y::first-letter {
+    -webkit-initial-letter:3;
+    initial-letter: 3; /* Initial letter occupies 2 lines */
+    color:var(--pure-white);
+}
+
+.minds-eye{
+    position:relative;
+    top:5px;
+    left:5px;
+    font-size:1.4em;
+    letter-spacing:2px;
+    /*color:var(--sun-yellow);*/
+}
+
+.Z {
+/*-webkit-initial-letter: 2;
+initial-letter: 2; /* Initial letter occupies 2 lines */
+    color:var(--pure-white);
+    font-size:2em;
+}
+.m{
+    color:var(--pure-white);
+}
+span.C.first-letter{
+    -webkit-initial-letter:3;
+    initial-letter: 3; /* Initial letter occupies 2 lines */
+    color:var(--pure-white);
+}
+
+.chaotic-fractals {
+    color:var(--chaotic-fractals);
+    font-family: "Edu NSW ACT Cursive", cursive, Sans-serif;
+    font-size: 1.2em;
+    letter-spacing: 0.5px;
+}
+.matthew {
+    color:var(--scripture-red);
+    font-family: "Playwrite GB S Guides", cursive;
+    font-weight: 500;
+    font-size: 1.4em;
+    letter-spacing: 0.5px;
+}
+.scripture-quote {
+    color:var(--scripture-quote);
+    font-family: "Edu NSW ACT Cursive", cursive, Sans-serif;
+    font-optical-sizing: auto;
+    font-size: 1.1em;
+    letter-spacing: 0.5px;
+}
+.ponder-this-reversal {
+    color: var(--sun-yellow);
+    font-family: "Playwrite GB S Guides", Sans-serif;
+    font-size: 1.2em;
+    letter-spacing: 0.5px;
+}
+.reversal {
+    color: var(--sun-yellow);
+    font-size: 1.2em;
+    letter-spacing: 0.5px;
+}
+#return-home {
+    z-index:500px;
+    width:140px;
+    padding: 11px 11px;
+    font-size: 1.3em;
+    background-color: var(--grass-green);
+    color: var(--pure-white);
+    border: 1px solid var(--pure-white);
+    cursor: pointer;
+    /* margin: 10px auto 0; */
+    font-family: "Saira Stencil", "Orbitron", sans-serif;
+    transition: background-color 0.3s, color 0.3s;
+}   
+#return-home:hover {
+    background-color: var(--forest-green);
+    -webkit-animation: delayReverse 0.7s ease 0s 1 normal;
+    -moz-animation: delayReverse 0.7s ease 0s 1 normal;
+    -ms-animation: delayReverse 0.7s ease 0s 1 normal;
+    animation: delayReverse 0.7s ease 0s 1 normal;
+    color:whitesmoke;
+}
+
+
+.return-home{
+    border-radius: 20px;
+    corner-shape: scoop; /* Concave corners */
+    border: 2px solid white;
+    /* 
+    position:relative;
+    left:50%;
+    transform:translate(-50%);
+    bottom:1%; 
+    */
+}
+
+
+img.seashell-amphitheater {
+    border-radius: 30px; /* Defines the size of the curve */
+    corner-shape: squircle; /* Defines the geometry (iOS-style) */
+
+    border: 4px solid white; /* Follows the squircle shape */
+    box-shadow: 0 10px 20px rgba(0,0,0,0.2); /* Follows the squircle shape */
+
+    object-fit: cover; /* Ensures image fills the shape without distortion */
+    width: 800px;
+    height: 400px;
+}
+.seashell-amphitheater{
+    z-index:100px;
+    position:absolute;
+    text-align:center;
+    left:50%;
+    transform:translate(-50%);
+    corner-shape: bevel; /* Cut corners */
+}
+
+
+.space-embed{
+    z-index:66px;
+    position:absolute;
+    text-align:center;
+    left:50%;
+    transform:translate(-50%);
+}
+
+.triptoinfinity, .cosmicflow{
+    font-size: 1.7em;
+    color:orangered;
+    margin-bottom: 20px;
+    font-family: "Saira Stencil", sans-serif;
+    letter-spacing: 1px;
+}
+
+/* Start of: Animations and Transitions  */
+
+
+/* 2. The Progress Bar */
+.progress-bar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 8px;
+    background: linear-gradient(90deg, #FFEB00, #4F24D4);
+    width: 0%; /* Start at 0 */
+    z-index: 9999;
+
+/* CRITICAL ORDER: Shorthand FIRST, Timeline LAST */
+    animation: grow linear; 
+    animation-timeline: scroll(); /* Binds to the root scroller */
+}
+
+@keyframes grow {
+    to { width: 100%; }
+}
+
+/* Text reveal effect */
+.reveal-text {
+    animation: reveal linear;
+    animation-timeline: view(); /* Binds to element visibility */
+    animation-range: entry 10% cover 90%;
+}
+
+@keyframes reveal {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+/* Start of: Media Queries   */
