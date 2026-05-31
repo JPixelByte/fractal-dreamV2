@@ -42,7 +42,7 @@ function toggleScreenDim() {
 }
 function openWriting() {
     //open the writing.html page in a new tab
-    window.open('fractal-writing.html', '_blank');
+    window.open('fractal-writing2.html', '_blank');
 }
 
 function resetGalaxyFractal() {
