@@ -273,8 +273,14 @@ a:link:hover{
         100% 100%, 
         100% 20px; /* Change 20px to adjust distance between ticks */
   
-  background-repeat: no-repeat, repeat-y;
+    background-repeat: no-repeat, repeat-y;
     color:var(--rebecca-purple);
+}
+
+#clock {
+    writing-mode:unset;
+    scale:1.2;
+
 }
 
 /* Start of: Image Modal Popup */
