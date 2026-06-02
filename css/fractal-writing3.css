@@ -16,7 +16,8 @@
     --sun-yellow: rgb(255, 223, 0);
     --pure-white: rgb(255, 255, 255);
     --pure-black: rgb(0, 0, 0);
-    --smoke-gray: rgb(128, 128, 128);
+    --dark-gray: rgb(64, 64, 64);
+    --smoke-gray: rgb(163, 163, 163);
 }
 *::before, *::after {
     margin: 0;
@@ -245,7 +246,7 @@ a:link:hover{
     font-size:1.4em;
     letter-spacing:2px;
     /* writing-mode: tb-rl;  */
-    color:var(--sun-yellow);
+    color:var(--smoke-gray);
 }
 
 .time-graph {
@@ -265,7 +266,7 @@ a:link:hover{
   /* The gradient creates a repeating pattern: line color, then transparent gap */
     background-image: 
         linear-gradient(to right, #ffd000 100%, transparent 0%), /* The vertical spine */
-        linear-gradient(to bottom, #ff7c02 50%, transparent 50%); /* The horizontal ticks */
+        linear-gradient(to bottom, #555453 50%, transparent 50%); /* The horizontal ticks */
   
     /* Size controls the spacing: 
         Width of spine / Height of ticks (spacing) */
@@ -274,13 +275,12 @@ a:link:hover{
         100% 20px; /* Change 20px to adjust distance between ticks */
   
     background-repeat: no-repeat, repeat-y;
-    color:var(--rebecca-purple);
+    color:var(--smoke-gray);
 }
 
 #clock {
     writing-mode:unset;
     scale:1.2;
-
 }
 
 /* Start of: Image Modal Popup */
