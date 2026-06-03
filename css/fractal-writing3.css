@@ -245,8 +245,8 @@ a:link:hover{
     transform:translate(-50%);
     font-size:1.4em;
     letter-spacing:2px;
-    /* writing-mode: tb-rl;  */
-    color:var(--smoke-gray);
+    color:var(--rebecca-purple);
+   
 }
 
 .time-graph {
