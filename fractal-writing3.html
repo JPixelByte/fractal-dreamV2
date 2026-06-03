@@ -189,6 +189,7 @@ function changeInfinityFont() {
 
   // Get the modal
   var modal = document.getElementById("imageModal");
+  modal.style.top = "20%"; // Adjust the top position of the modal
 
   // Get the image and insert it inside the modal - use its "alt" text as a caption
   var modalImg = document.getElementById("modalImg");
@@ -198,7 +199,22 @@ function changeInfinityFont() {
     img.onclick = function(){
       modal.style.display = "block";
       modalImg.src = this.src;
+      modalImg.alt = this.alt;
+      modalImg.title = this.title;
+      modalImg.style.scale = "1.2"; // Enlarge the image in the modal
+      modalImg.style.transition = "transform 0.3s ease"; // Smooth transition for scaling
+      modalImg.onmouseover = function() {
+          this.style.transform = "scale(1.1)"; 
+          this.style.cursor = "pointer"; // Change cursor to pointer on hover
+          this.tyle.transition = "transform 0.7s ease";
+        }
     }
+     modalImg.onmouseout = function() {
+          this.style.transform = "scale(1)"; 
+          this.style.cursor = "pointer"; // Change cursor to pointer on hover
+          this.tyle.transition = "transform 0.7s ease";
+        }
+    
   });
 
   // Get the <span> element that closes the modal
